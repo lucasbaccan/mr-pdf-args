@@ -1,3 +1,27 @@
+<!-- This is a fork -->
+## 🔎 Introduction
+
+This project is a fork of [mr-pdf](https://github.com/kohheepeace/mr-pdf) with the following changes:
+- [x] Support to pass `--puppeteerArgs` to `puppeteer.launch()` ([PR #64](https://github.com/kohheepeace/mr-pdf/pull/64))
+
+## 📌 Usage
+
+```shell
+npx mr-pdf --initialDocURLs="https://v1.docusaurus.io/docs/en/installation" --paginationSelector=".docs-prevnext > a.docs-next" --excludeSelectors=".fixedHeaderContainer,footer.nav-footer,#docsNav,nav.onPageNav,a.edit-page-link,div.docs-prevnext" --cssStyle=".navPusher {padding-top: 0;}" --contentSelector="article" --puppeteerArgs="--no-sandbox"
+```
+
+## 🐋 Motivation
+
+You cant use `puppeteer` in `docker` container without `--no-sandbox`. But `mr-pdf` does not support passing `puppeteerArgs` to `puppeteer.launch()`, now you can generate the PDF files using docker.
+
+In the project you can find a `Dockerfile` and a `docker-compose.yml` file to generate the PDF files using docker.
+
+---
+
+All the content below is from the original project. 
+
+---
+
 ## ⚠️ Caution!
 Currently, this package is not catching up with docusaurus v2 HTML markup, so command may not find the correct HTML to loop through docs. Please modify the command to find correct HTML markup by yourself.
 
